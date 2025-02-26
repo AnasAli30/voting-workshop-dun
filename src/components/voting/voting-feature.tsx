@@ -601,8 +601,8 @@ export function VotingFeature() {
             .accounts({
               authority: publicKey,
               poll: pollPda,
-              candidate: candidatePda as any,
-              systemProgram: SystemProgram.programId,
+              // candidate: candidatePda,
+              // systemProgram: SystemProgram.programId,
             })
             .rpc();
 
@@ -682,8 +682,8 @@ export function VotingFeature() {
           voter: publicKey,
           poll: pollAuthority as any,
           candidate: candidatePda,
-          voterRecord: voterRecordPda ,
-          systemProgram: SystemProgram.programId,
+          // voterRecord: voterRecordPda ,
+          // systemProgram: SystemProgram.programId,
         })
         .rpc();
 

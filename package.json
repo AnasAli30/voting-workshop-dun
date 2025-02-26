@@ -8,7 +8,8 @@
     "anchor-localnet": "cd anchor && anchor localnet",
     "anchor-test": "cd anchor && anchor test",
     "dev": "next dev",
-    "build": "NEXT_IGNORE_ESLINT_ERRORS=1 NEXT_IGNORE_TYPE_ERRORS=1 next build",
+    "build": "next build",
+     "build-dev": "TS_NODE_TRANSPILE_ONLY=true next build",
     "start": "next start",
     "lint": "next lint"
   },
