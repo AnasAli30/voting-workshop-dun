@@ -9,7 +9,6 @@
     "anchor-test": "cd anchor && anchor test",
     "dev": "next dev",
     "build": "next build",
-     "build-dev": "TS_NODE_TRANSPILE_ONLY=true next build",
     "start": "next start",
     "lint": "next lint"
   },
