@@ -570,6 +570,25 @@ export function VotingFeature() {
         program.programId
       );
 
+      try {
+        const pollTx = await program.methods
+          .initializePoll(
+            pollData.description,
+            startTime,
+            endTime,
+            pollData.name
+          )
+          // @ts-ignore
+          .accounts({
+            authority: publicKey,
+            poll: pollPda as unknown as any,
+            systemProgram: SystemProgram.programId,
+          })
+          .rpc();
+      } catch (err) {
+        console.log(err)
+        throw new Error('Failed to create poll. Please try again.');
+      }
 
       setTransactionStatus({
         status: 'confirming',
@@ -601,8 +620,8 @@ export function VotingFeature() {
             .accounts({
               authority: publicKey,
               poll: pollPda,
-              // candidate: candidatePda,
-              // systemProgram: SystemProgram.programId,
+              candidate: candidatePda,
+              systemProgram: SystemProgram.programId,
             })
             .rpc();
 
@@ -682,8 +701,8 @@ export function VotingFeature() {
           voter: publicKey,
           poll: pollAuthority as any,
           candidate: candidatePda,
-          // voterRecord: voterRecordPda ,
-          // systemProgram: SystemProgram.programId,
+          voterRecord: voterRecordPda ,
+          systemProgram: SystemProgram.programId,
         })
         .rpc();
 
